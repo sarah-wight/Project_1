@@ -12,7 +12,11 @@ public class Course {
     }
 
     public String getPrefix() {
-        return prefix;
+        if (prefix.length() == 3){
+            return prefix;
+    }
+    else
+        throw new RuntimeException("Enter a course Prefix that is only 3 characters");
     }
 
     public void setPrefix(String prefix) {

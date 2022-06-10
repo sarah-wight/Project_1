@@ -8,7 +8,7 @@ public class Student {
     private ArrayList phone;
     private int gnumber;
 
-    private static int currentID;
+    private static int currentID = 10000000;
 
     public Student() {
         this.phone = phone;
