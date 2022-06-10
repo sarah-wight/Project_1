@@ -24,15 +24,28 @@ public class Course {
     }
 
     public int getNumber() {
-        return number;
-    }
+        if(9999 > number && number > 0) {
+            return number;
+        }
+        else {
+            throw new RuntimeException("Please enter a course number between 9999-1");
+        }
+        }
+
+
 
     public void setNumber(int number) {
         this.number = number;
     }
 
     public String getTitle() {
-        return title;
+        if(title != "") {
+            return title;
+        }
+        else {
+
+            throw new RuntimeException("Please enter a course title");
+        }
     }
 
     public void setTitle(String title) {
