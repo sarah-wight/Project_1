@@ -35,7 +35,7 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public ArrayList getAddresses() {
+    public ArrayList getAddress() {
         return address;
     }
 
