@@ -65,7 +65,7 @@ public class Student {
      */
     public void setLastName(String lastName) {
         // checking length and that the field is not blank
-        if((lasName.length() < 50) && (lastName != "")) {
+        if((lastName.length() < 50) && (lastName != "")) {
             this.lastName = lastName;
         }
         else {
@@ -107,12 +107,12 @@ public class Student {
 
     /**
      * addPhone.  Adds a phone number to the student's list of phone numbers.
-     * @ArrayList<Phone> i.
+     * @Phone phone.
      */
-    public void addPhone(ArrayList<Phone> i) {
+    public void addPhone(Phone phone) {
         // set type
         // set primary?
-        phoneNumbers.add(i);
+        phoneNumbers.add(phone);
     }
 
     /**
