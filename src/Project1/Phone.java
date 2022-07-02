@@ -35,6 +35,7 @@ public class Phone {
      */
     public Phone(){
         // when we make these constructors do we want to force them to enter the phone type
+        Phone phone = new Phone();
     }
 
     /**
@@ -126,12 +127,4 @@ public class Phone {
         return this.type + ": (" + areaCode + ") " + prefix + "-" + number;
     }
 
-    /**
-     * main.  Testing that the individual class works.
-     * @String[] args.
-     */
-    public static void main(String[] args) {
-        Phone phone1 = new Phone(PhoneType.BUSINESS, 810, 294, 9817, true);
-        System.out.println(phone1);
-    }
 }
