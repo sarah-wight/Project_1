@@ -1,132 +1,88 @@
 package Project1;
 import java.util.ArrayList;
-import java.lang.Enum;
 
 /**
- * Phone class.
+ * Record class.
  *
- * This file contains and edits the phone numbers.
+ * This file contains and edits the student records.
  * @author Sarah Wight, Zack Peters, Mike Rosin
  * @date 7/6/2022
  *
  */
-public class Phone {
-    private int areaCode;
-    private int prefix;
-    private int number;
-    private boolean primary;
-    private PhoneType type;
+public class Record {
+    private Date date; // need a date class
+    private Student student;
+    private Course course;
+    private float grade;
+    private SMS sms = new SMS();
 
-    /**
-     * PhoneType.  Enumeration class that sets the phone number type.
-     */
-    enum PhoneType {
-        HOME,
-        CELL,
-        BUSINESS,
-        FAX
+    /*public static void main(String[] args) {
+        Date date = new Date();
+        Student sw =  new Student();
+        Course course = new Course();
+        Record record1 = new Record(date, sw, course, 4.0f);
+        System.out.println(record1);
+
+    }*/
+
+    public Record() {
+
     }
 
-    // do we even need this constructor? not in UML
-    // probably change and make this blank - just prompt them to set everything?
-    /**
-     * Constructor.  Sets base state of a Phone object to the
-     * values passed in.
-     */
-    public Phone(){
-        // when we make these constructors do we want to force them to enter the phone type
-        //Phone phone = new Phone();
+    public Record(Student student) {
+        this.student = student;
     }
 
-    /**
-     * getAreaCode.  Returns an int with the phone number's area code.
-     * @return int
-     */
-    public int getAreaCode() {
-        return areaCode;
+    public Record(Course course) {
+        this.course = course;
     }
 
-    /**
-     * setAreaCode.  Sets the phone number's area code.
-     * @int areaCode.
-     */
-    public void setAreaCode(int areaCode) {
-        this.areaCode = areaCode;
+    public Record(Date date, Student student, Course course, float grade) {
+        this.date = date;
+        this.student = student;
+        this.course = course;
+        this.grade = grade;
+
+        sms.addRecord(this);
     }
 
-    /**
-     * getPrefix.  Returns an int with the prefix of the phone number.
-     * @return int
-     */
-    public int getPrefix() {
-        return prefix;
+    public Date getDate() {
+        return date;
     }
 
-    /**
-     * setPrefix.  Sets the phone number's prefix.
-     * @int prefix.
-     */
-    public void setPrefix(int prefix) {
-        this.prefix = prefix;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    /**
-     * getNumber.  Returns an int with the last 4 digits of the phone number.
-     * @return int
-     */
-    public int getNumber() {
-        return number;
+    public Student getStudent() {
+        return student;
     }
 
-    /**
-     * setNumber.  Sets the phone number's last four digits.
-     * @int number.
-     */
-    public void setNumber(int number) {
-        this.number = number;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    /**
-     * getType.  Returns a PhoneType with the type of phone number.
-     * @return PhoneType
-     */
-    public PhoneType getType() {
-        return type;
+    public Course getCourse() {
+        return course;
     }
 
-    /**
-     * setType.  Sets the phone number's type to home, cell, business, fax.
-     * @int areaCode.
-     */
-    public void setType(PhoneType type) {
-        // maybe a switch statement to set type?
-        this.type = type;
+    public void setCourse(Course course) {
+        Record record = new Record(course);
+        //this.course = course;
     }
 
-    /**
-     * getPrimary.  Returns a boolean confirming if the phone number is primary.
-     * @return boolean
-     */
-    public boolean getPrimary() {
-        return primary;
+    public float getGrade() {
+        return grade;
     }
 
-    /**
-     * setPrimary.  Sets the phone number as primary.
-     * @boolean primary.
-     */
-    public void setPrimary(boolean primary) {
-        if(primary) {
-            this.primary = primary;
-        }
+    public void setGrade(float grade) {
+        this.grade = grade;
     }
 
-    /**
-     * toString.  Returns a formatted String with the phone number.
-     * @return String
-     */
     public String toString() {
-        return this.type + ": (" + areaCode + ") " + prefix + "-" + number;
+        return "Record for " + student.getFirstName() + "\n" +
+                "Date: " + date + "\n" +
+                "Course: " + course + "\n" +
+                "Grade: " + grade;
     }
-
 }
