@@ -14,12 +14,36 @@ public class Record {
     private Student student;
     private Course course;
     private float grade;
+    private SMS sms = new SMS();
+
+    /*public static void main(String[] args) {
+        Date date = new Date();
+        Student sw =  new Student();
+        Course course = new Course();
+        Record record1 = new Record(date, sw, course, 4.0f);
+        System.out.println(record1);
+
+    }*/
+
+    public Record() {
+
+    }
+
+    public Record(Student student) {
+        this.student = student;
+    }
+
+    public Record(Course course) {
+        this.course = course;
+    }
 
     public Record(Date date, Student student, Course course, float grade) {
         this.date = date;
         this.student = student;
         this.course = course;
         this.grade = grade;
+
+        sms.addRecord(this);
     }
 
     public Date getDate() {
@@ -43,7 +67,8 @@ public class Record {
     }
 
     public void setCourse(Course course) {
-        this.course = course;
+        Record record = new Record(course);
+        //this.course = course;
     }
 
     public float getGrade() {
@@ -52,5 +77,12 @@ public class Record {
 
     public void setGrade(float grade) {
         this.grade = grade;
+    }
+
+    public String toString() {
+        return "Record for " + student.getFirstName() + "\n" +
+                "Date: " + date + "\n" +
+                "Course: " + course + "\n" +
+                "Grade: " + grade;
     }
 }
