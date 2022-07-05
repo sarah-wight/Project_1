@@ -21,6 +21,9 @@ public class Course {
      * values passed in.
      */
     public Course(){
+        this.prefix = "ABC";
+        this.number = 123;
+        this.title = "Default Course";
     }
 
     /**
