@@ -1,5 +1,6 @@
 package Project1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -12,6 +13,7 @@ import java.util.Scanner;
  */
 public class StudentMenu {
     private Scanner scnr = new Scanner(System.in);
+
     // Creating a new student and address
     private Student student = new Student();
     private Address address = new Address();
@@ -19,12 +21,13 @@ public class StudentMenu {
     private Record record = new Record();
     private SMS sms = new SMS();
 
+    private ArrayList<Student> studentList = new ArrayList<Student>(); // holds all students
+
     /**
      * addStudent.  Prompts user for all required information
      * about a student.
      */
     public void addStudent() {
-
 
         // Prompting user to enter student information
         System.out.println("Enter student's first name");
@@ -92,15 +95,16 @@ public class StudentMenu {
         phone.setPrimary(true); // setting the phone number entered to primary
         student.addPhone(phone); // assigning the phone entered to the student
 
-        student.getgNumber();
+        student.getgNumber(); // getting the gnumber - do we get or set?
+
+        studentList.add(student); // adding new student to the list of students
 
         // TESTING STUFF
-        record.setStudent(student);
-        sms.addRecord(record);
-        //System.out.println(student); // ************ NEED TO ADD GNUMBER + TRY CATCH BLOCKS ***************
-        System.out.println(record.getStudent());
+        //sms.addRecord(record);
+        System.out.println(student); // ************ NEED TO ADD GNUMBER + TRY CATCH BLOCKS ***************
+
         System.out.println("\n Record List \n");
-        System.out.println(sms.getRecordList());
+        System.out.println(studentList);
     }
 
     /**
