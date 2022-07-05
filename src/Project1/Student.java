@@ -27,6 +27,12 @@ public class Student {
     public Student() {
         // when a new student is created do we want to force setters in here
         // make it a default constructor
+        this.firstName = "John";
+        this.lastName = "Doe";
+        this.addresses[0] = new Address();
+        this.addresses[1] = new Address();
+        this.phoneNumbers = new ArrayList<Phone>();
+        this.gNumber = 10000000;
     }
 
     /**
@@ -120,6 +126,7 @@ public class Student {
      * @return int
      */
     public int getgNumber() {
+        // if new student create new?
         return gNumber;
     }
 
