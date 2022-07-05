@@ -23,7 +23,12 @@ public class Address {
      * values passed in.
      */
     public Address(){
-        // what do we want here?
+        this.number = 1;
+        this.street = "Campus Dr.";
+        this.lineTwo = "";
+        this.city = "Allendale";
+        this.state = "MI";
+        this.zip = 49401;
     }
 
     /**
@@ -61,11 +66,11 @@ public class Address {
      * @String street
      */
     public void setStreet(String street) {
-        if(street != "") {
+        if((street.length() < 50) && (street != "")) {
             this.street = street;
         }
         else {
-            throw new RuntimeException("Please enter a street name");
+            throw new RuntimeException("Street must be less than 50 characters");
         }
     }
 
@@ -162,4 +167,3 @@ public class Address {
         return number + " " + street + "\n" + city + ", " + state + " " + zip;
     }
 }
-
