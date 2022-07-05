@@ -35,7 +35,7 @@ public class Phone {
      */
     public Phone(){
         // when we make these constructors do we want to force them to enter the phone type
-        Phone phone = new Phone();
+        //Phone phone = new Phone();
     }
 
     /**
@@ -116,7 +116,9 @@ public class Phone {
      * @boolean primary.
      */
     public void setPrimary(boolean primary) {
-        this.primary = primary;
+        if(primary) {
+            this.primary = primary;
+        }
     }
 
     /**
