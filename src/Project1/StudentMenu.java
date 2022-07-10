@@ -19,6 +19,7 @@ public class StudentMenu {
     private Phone phone = new Phone();
     private Record record = new Record(); // idk if we need
     private SMS sms = new SMS();
+    private boolean valid = false;
 
     /*********************************************************
      * addStudent.  Prompts user for all required information
@@ -32,73 +33,231 @@ public class StudentMenu {
         Address address = new Address();
         Phone phone = new Phone();
 
-        // Prompting user to enter student information
-        System.out.println("Enter student's first name");
-        student.setFirstName(scnr.nextLine());
 
-        System.out.println("Enter student's last name");
-        student.setLastName(scnr.nextLine());
+        // Prompting user to enter student first name
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Enter student's first name");
+                student.setFirstName(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
+
+        // Prompting user to enter student last name
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Enter student's last name");
+                student.setLastName(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
         // Prompting user to enter MAILING address info
-        System.out.println("Mailing Address - Enter number");
-        address.setNumber(scnr.nextInt());
-        scnr.nextLine(); // need this after nextInt() call to get the new line in the stream
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Mailing Address - Enter number");
+                address.setNumber(scnr.nextInt());
+                scnr.nextLine(); // need this after nextInt() call to get the new line in the stream
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Mailing Address - Enter street name");
-        address.setStreet(scnr.nextLine());
+        // Prompting user to enter MAILING address street name
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Mailing Address - Enter street name");
+                address.setStreet(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Mailing Address - Enter city");
-        address.setCity(scnr.nextLine());
+        // Prompting user to enter MAILING address city
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Mailing Address - Enter city");
+                address.setCity(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Mailing Address - Enter state");
-        address.setState(scnr.nextLine());
+        // Prompting user to enter MAILING address state
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Mailing Address - Enter state");
+                address.setState(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Mailing Address - Enter zipcode");
-        address.setZip(scnr.nextInt());
-        scnr.nextLine(); // need this after nextInt() call to get the new line
+        // Prompting user to enter MAILING address zipcode
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Mailing Address - Enter zipcode");
+                address.setZip(scnr.nextInt());
+                scnr.nextLine(); // need this after nextInt() call to get the new line
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
         student.setMailingAddr(address); // setting the address entered as the mailing address
 
-        // Prompting user to enter BILLING address info
-        System.out.println("Billing Address - Enter number");
-        address.setNumber(scnr.nextInt());
-        scnr.nextLine(); // need this after nextInt() call to get the new line
+        // Prompting user to enter BILLING address number
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Billing Address - Enter number");
+                address.setNumber(scnr.nextInt());
+                scnr.nextLine(); // need this after nextInt() call to get the new line
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Billing Address - Enter street name");
-        address.setStreet(scnr.nextLine());
+        // Prompting user to enter BILLING address name
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Billing Address - Enter street name");
+                address.setStreet(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Billing Address - Enter city");
-        address.setCity(scnr.nextLine());
+        // Prompting user to enter BILLING address city
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Billing Address - Enter city");
+                address.setCity(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Billing Address - Enter state");
-        address.setState(scnr.nextLine());
+        // Prompting user to enter BILLING address state
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Billing Address - Enter state");
+                address.setState(scnr.nextLine());
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Billing Address - Enter zipcode");
-        address.setZip(scnr.nextInt());
-        scnr.nextLine(); // need this after nextInt() call to get the new line
+        // Prompting user to enter BILLING address zipcode
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Billing Address - Enter zipcode");
+                address.setZip(scnr.nextInt());
+                scnr.nextLine(); // need this after nextInt() call to get the new line
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
         student.setBillingAddr(address); // setting the address entered as the billing address
 
-        // Prompting user to enter PHONE NUMBER info
-        System.out.println("Phone Number - Enter phone type");
-        phone.setType(Phone.PhoneType.valueOf(scnr.nextLine()));
+        // Prompting user to enter PHONE NUMBER type
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Phone Number - Enter phone type");
+                phone.setType(Phone.PhoneType.valueOf(scnr.nextLine()));
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Phone Number - Enter area code");
-        phone.setAreaCode(scnr.nextInt());
-        scnr.nextLine();
+        // Prompting user to enter PHONE NUMBER area code
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Phone Number - Enter area code");
+                phone.setAreaCode(scnr.nextInt());
+                scnr.nextLine();
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Phone Number - Enter prefix");
-        phone.setPrefix(scnr.nextInt());
-        scnr.nextLine();
+        // Prompting user to enter PHONE NUMBER prefix
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Phone Number - Enter prefix");
+                phone.setPrefix(scnr.nextInt());
+                scnr.nextLine();
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
-        System.out.println("Phone Number - Enter last 4 digits");
-        phone.setNumber(scnr.nextInt());
-        scnr.nextLine();
+        // Prompting user to enter PHONE NUMBER last 4 digits
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Phone Number - Enter last 4 digits");
+                phone.setNumber(scnr.nextInt());
+                scnr.nextLine();
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
         phone.setPrimary(true); // setting the phone number entered to primary
         student.addPhone(phone); // assigning the phone entered to the student
 
         student.getgNumber(); // getting the gnumber - do we get or set?
+
 
         sms.addS(student); // adding new student to the list of students
 
