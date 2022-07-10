@@ -1,37 +1,68 @@
 package Project1;
+
 import java.util.ArrayList;
 
+
+/***************************************************************
+ * Student Management System class.
+ *
+ * This file contains the records and student data
+ * @author Sarah Wight, Zack Peters, Mike Rosin
+ * @date 7/11/2022
+ *
+ **************************************************************/
 public class SMS {
-    private ArrayList<Record> record = new ArrayList<Record>();
+    private ArrayList<Record> record = new ArrayList<Record>(); // arraylist to hold records
+    private ArrayList<Student> student = new ArrayList<Student>(); // arraylist to hold students
+    private ArrayList<Course> course = new ArrayList<Course>(); // arraylist to hold courses
 
-    public void addRecord(Record r) {
-        record.add(r);
+    // loop thru arraylist to see if gnumber matches
+
+    /**************************************************************
+     * Main.  Allows program to run. Displays the main menu and
+     * takes user input that directs to either the student,
+     * course, or record menus.
+     **************************************************************/
+    public static void main(String[] args) {
+
+        MainMenu mm = new MainMenu();
+        mm.displayMain();
+
     }
 
-    public ArrayList<Record> getRecordList() {
-        return record;
+
+    /***************************************************************
+     * addS.  Adds a Student to the ArrayList of Students
+     **************************************************************/
+    public void addS(Student s) {
+        student.add(s);
     }
 
-    public ArrayList<Record> getTranscript(int gNumber) {
-        /*for(Record r : record) {
-            if(gNumber == r.getStudent().getgNumber()) {
-                record = ;
-            }
+    /***************************************************************
+     * printS.  prints the ArrayList of Students
+     **************************************************************/
+    public void printS() {
+        for (Student s : student) {
+            System.out.println(s);
+            System.out.println("END OF STUDENT\n");
         }
-*/
-        return record;
     }
 
-    // added myself - idk if we need
-    public Student findStudent(int gNumber) {
-        Student student = null;
+    /***************************************************************
+     * addC.  Adds a Student to the ArrayList of Students
+     **************************************************************/
+    public void addC(Course c) {
+        course.add(c);
+    }
 
-        for(Record r : record) {
-            if(gNumber == r.getStudent().getgNumber()) {
-                student = r.getStudent();
-            }
+    /***************************************************************
+     * printC.  prints the ArrayList of Students
+     **************************************************************/
+    public void printC() {
+        for (Course c : course) {
+            System.out.println(c);
+            System.out.println("\n");
         }
-
-        return student;
     }
+
 }
