@@ -1,33 +1,36 @@
 package Project1;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
+/*********************************************************
  * Student Menu class.
  *
  * This file creates a new student or modifies an existing student
  * @author Sarah Wight, Zack Peters, Mike Rosin
- * @date 7/6/2022
+ * @date 7/11/2022
  *
- */
+ ********************************************************/
 public class StudentMenu {
     private Scanner scnr = new Scanner(System.in);
 
-    // Creating a new student and address
+    // Creating a new student and address - might not need these
     private Student student = new Student();
     private Address address = new Address();
     private Phone phone = new Phone();
-    private Record record = new Record();
+    private Record record = new Record(); // idk if we need
     private SMS sms = new SMS();
 
-    private ArrayList<Student> studentList = new ArrayList<Student>(); // holds all students
-
-    /**
+    /*********************************************************
      * addStudent.  Prompts user for all required information
      * about a student.
-     */
+     ********************************************************/
+    // add try catch in here
     public void addStudent() {
+
+        // creating new student, address, phone
+        Student student = new Student();
+        Address address = new Address();
+        Phone phone = new Phone();
 
         // Prompting user to enter student information
         System.out.println("Enter student's first name");
@@ -39,7 +42,7 @@ public class StudentMenu {
         // Prompting user to enter MAILING address info
         System.out.println("Mailing Address - Enter number");
         address.setNumber(scnr.nextInt());
-        scnr.nextLine(); // need this after nextInt() call to get the new line
+        scnr.nextLine(); // need this after nextInt() call to get the new line in the stream
 
         System.out.println("Mailing Address - Enter street name");
         address.setStreet(scnr.nextLine());
@@ -97,23 +100,22 @@ public class StudentMenu {
 
         student.getgNumber(); // getting the gnumber - do we get or set?
 
-        studentList.add(student); // adding new student to the list of students
+        sms.addS(student); // adding new student to the list of students
 
-        // TESTING STUFF
-        //sms.addRecord(record);
         System.out.println(student); // ************ NEED TO ADD GNUMBER + TRY CATCH BLOCKS ***************
-
-        System.out.println("\n Record List \n");
-        System.out.println(studentList);
+        System.out.println("\n");
     }
 
-    /**
+    /*********************************************************
      * modStudent.  Prompts user for all required information
      * about a student.
-     */
-    public void modStudent(int gNumber) {
+     ********************************************************/
+    public void modStudent() {
         // need to be able to identify a student by their gNUmber ***********NEED TO FIX
-        Student student = sms.findStudent(gNumber);
-        System.out.println(student);
+        sms.printS();
+        System.out.println("Print done");
+
+        /*Student student = sms.findStudent(gNumber);
+        System.out.println(student);*/
     }
 }
