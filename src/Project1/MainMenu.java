@@ -81,10 +81,9 @@ public class MainMenu {
             case 1:
                 sm.addStudent(); // if 1, a student will be added
                 break;
-            case 2: //System.out.println("Enter the G Number of the student you would like to modify");
-                //sm.modStudent(scnr.nextInt()); // if 2, a student will be modified
-                //scnr.nextLine();
-                sm.modStudent();
+            case 2: System.out.println("Enter the G Number of the student you would like to modify");
+                sm.modStudent(scnr.nextInt()); // if 2, student will be modified
+                scnr.nextLine();
                 break;
             case 3:
                 displayMain();
@@ -148,17 +147,18 @@ public class MainMenu {
 
         // action is based on user input
         switch (userNum) {
-            case 1:
-                rm.addRecord(); // if 1, a record will be added
+            case 1: System.out.println("Enter the G Number of the student you would like to add a record for\n");
+                rm.addRecord(scnr.nextInt()); // if 1, a record will be added
+                scnr.nextLine();
                 break;
             case 2:
                 rm.viewTranscript(); // if 2, a transcript will be displayed
                 break;
             case 3:
-                rm.saveRecord(); // if 3, the record will be saved to disk
+                rm.saveRecord("record.ser"); // if 3, the record will be saved to disk
                 break;
             case 4:
-                rm.loadRecord(); // if 4, records will be loaded from disk
+                rm.loadRecord("record.ser"); // if 4, records will be loaded from disk
                 break;
             case 5:
                 displayMain(); // if 5, main menu will be displayed
