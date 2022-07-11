@@ -118,4 +118,21 @@ public class SMS {
         }
     }
 
+    /***************************************************************
+     * findR.  loops through the ArrayList of students to find matching
+     * gNumber. Returns the Student
+     * @int gNum
+     **************************************************************/
+    public ArrayList<Record> findR(int gNum) {
+        ArrayList<Record> blank = new ArrayList<Record>();
+
+        // looping through list of records and adding all records that match the gnum
+        for(Record r : record) {
+            if(gNum == r.getStudent().getgNumber()) {
+                blank.add(r);
+            }
+        }
+        return blank;
+    }
+
 }
