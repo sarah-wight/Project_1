@@ -2,7 +2,6 @@ package Project1;
 
 import java.util.ArrayList;
 
-
 /***************************************************************
  * Student Management System class.
  *
