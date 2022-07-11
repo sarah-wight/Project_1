@@ -44,7 +44,7 @@ public class Phone {
         if(areaCode > 99 && areaCode < 1000) {
             this.areaCode = areaCode;
         } else {
-            throw new RuntimeException("Please enter an area code between 100 and 999");
+            throw new IllegalArgumentException("Please enter an area code between 100 and 999");
         }
 
     }
@@ -67,7 +67,7 @@ public class Phone {
         if(prefix > 99 && prefix < 1000) {
             this.prefix = prefix;
         } else {
-            throw new RuntimeException("Please enter a prefix between 100 and 999");
+            throw new IllegalArgumentException("Please enter a prefix between 100 and 999");
         }
     }
 
@@ -89,7 +89,7 @@ public class Phone {
         if(number > 999 && number < 10000) {
             this.number = number;
         } else {
-            throw new RuntimeException("Please enter a number between 1000 and 9999");
+            throw new IllegalArgumentException("Please enter a number between 1000 and 9999");
         }
     }
 
