@@ -147,8 +147,8 @@ public class MainMenu {
 
         // action is based on user input
         switch (userNum) {
-            case 1: System.out.println("Enter the G Number of the student you would like to add a record for\n");
-                rm.addRecord(scnr.nextInt()); // if 1, a record will be added
+            case 1:
+                rm.addRecord(); // if 1, a record will be added
                 scnr.nextLine();
                 break;
             case 2: System.out.println("Enter the G Number of the student whose transcript you would like to view\n");
