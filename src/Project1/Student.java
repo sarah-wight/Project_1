@@ -45,7 +45,7 @@ public class Student {
      * @String firstName.
      ********************************************************/
     public void setFirstName(String firstName) {
-        
+
         // checking length and that the field is not blank
         if((firstName.length() < 50) && (firstName != "")) {
             this.firstName = firstName;
@@ -129,7 +129,6 @@ public class Student {
      * @return int
      ********************************************************/
     public int getgNumber() {
-        this.gNumber = gNumber + 1;
         return gNumber;
     }
 
@@ -138,9 +137,9 @@ public class Student {
      * @int gNumber.
      ********************************************************/
     public void setgNumber(int gNumber) {
-        
+
         // checking length
-        if(gNumber >= 10000000 && gNumber <= 99999999 ) {
+        if(gNumber >= 1000000 && gNumber <= 99999999 ) {
             this.gNumber = gNumber;
         } else {
             throw new RuntimeException("G Number must be between 10000000 and 99999999");
