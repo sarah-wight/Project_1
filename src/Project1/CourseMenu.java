@@ -1,9 +1,8 @@
 package Project1;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
+/*********************************************************
  * Course Menu class.
  *
  * This file can add new courses
@@ -11,7 +10,7 @@ import java.util.Scanner;
  * @author Sarah Wight, Zack Peters, Mike Rosin
  * @date 7/11/2022
  *
- */
+ ********************************************************/
 public class CourseMenu {
     private Course course = new Course();
     private Scanner scnr = new Scanner(System.in);
@@ -27,6 +26,7 @@ public class CourseMenu {
         Course course = new Course(); // creating new course
 
         // Prompting user to enter course prefix
+        valid = false;
         while(!valid) {
             try {
                 System.out.println("Enter course prefix");
