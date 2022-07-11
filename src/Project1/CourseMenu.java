@@ -51,7 +51,7 @@ public class CourseMenu {
                 System.out.println("Enter course prefix");
                 course.setPrefix(scnr.nextLine());
                 valid = true; // if valid entry, break out of loop
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage());
                 System.out.println("Please try again\n");
             }
@@ -71,7 +71,7 @@ public class CourseMenu {
                 course.setNumber(scnr.nextInt());
                 scnr.nextLine();
                 valid = true; // if valid entry, break out of loop
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage());
                 System.out.println("Please try again\n");
             }
@@ -90,7 +90,7 @@ public class CourseMenu {
                 System.out.println("Enter course title");
                 course.setTitle(scnr.nextLine());
                 valid = true; // if valid entry, break out of loop
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage());
                 System.out.println("Please try again\n");
             }
