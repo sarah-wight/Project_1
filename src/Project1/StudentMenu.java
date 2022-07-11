@@ -14,7 +14,7 @@ public class StudentMenu {
     private Scanner scnr = new Scanner(System.in);
 
     // Creating an instance of the SMS class and a boolean variable for the loops
-    private SMS sms = new SMS();
+    //private SMS sms = new SMS();
     private boolean valid = false;
 
     /*********************************************************
@@ -39,7 +39,10 @@ public class StudentMenu {
         // setting student's phone numbers
         setPhone(student, phone);
 
-        sms.addS(student); // adding new student to the list of students
+        // setting student's gNumber
+        setGNum(student);
+
+        SMS.smsInstance.addS(student); // adding new student to the list of students
 
         System.out.println(student); // printing out the student that was just added
         System.out.println("\n"); // newline
@@ -55,7 +58,7 @@ public class StudentMenu {
         Student student = new Student();
         Address address = new Address();
         Phone phone = new Phone();
-        student = sms.findS(gNum);
+        student = SMS.smsInstance.findS(gNum);
 
         // initializing variables
         int userNum = 0;
@@ -86,7 +89,7 @@ public class StudentMenu {
             default: System.out.println("Must choose an option"); // fix later
                 break;
         }
-        sms.printS(); // printing the updated list of students
+        SMS.smsInstance.printS(); // printing the updated list of students
     }
 
     /*********************************************************
@@ -344,6 +347,31 @@ public class StudentMenu {
 
         phone.setPrimary(true); // setting the phone number entered to primary
         student.addPhone(phone); // assigning the phone entered to the student
+    }
+
+    /*********************************************************
+     * setGNum.  Sets a students g number
+     * @Student student
+     ********************************************************/
+    public void setGNum(Student student) {
+
+        // Prompting user to enter gnumber
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Student G Number");
+                student.setgNumber(scnr.nextInt());
+                scnr.nextLine();
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage()); // reading error message thrown by exception
+                System.out.println("Please try again\n");
+            }
+        }
+    }
+
+    public void getS(int gNum) {
+        SMS.smsInstance.findS(gNum);
     }
 
 }
