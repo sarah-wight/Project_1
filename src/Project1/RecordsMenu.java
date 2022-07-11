@@ -47,27 +47,34 @@ public class RecordsMenu implements Serializable {
      * viewTranscript.  Displays the transcript of a student
      ******************************************************************/
     public void viewTranscript(int gNum) {
-        // UPDATE TO LOOK BETTER
+
+        // creating new ArrayList of records that will correspond with a specific g number
         ArrayList<Record> transcript = new ArrayList<Record>();
         Student student = new Student();
 
+        // adding all records for the student to an ArrayList
         transcript = SMS.smsInstance.findR(gNum);
         student = SMS.smsInstance.findS(gNum);
 
+        // Printing out transcript
         String ts = "Transcript for " + student.getFirstName() + " " + student.getLastName() + "\n\n";
 
+        // adding each record to the string and printing it out 
         for (Record r : transcript) {
             ts += r.toString() + "\n";
         }
-        System.out.println(ts); // fix format
+        System.out.println(ts); 
 
+        // finding the sum of the gpa for each class
         float sum = 0;
         for(int i = 0; i < transcript.size(); i++) {
             sum += transcript.get(i).getGrade();
         }
-
+        
+        // calculating the average gpa for all classes
         float avg = sum / transcript.size();
 
+        // printing out the overall gpa
         System.out.println("Overall GPA: " + avg + "\n");
     }
 
