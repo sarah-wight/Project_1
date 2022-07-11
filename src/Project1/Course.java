@@ -43,7 +43,7 @@ public class Course {
         if (prefix.length() == 3){
             this.prefix = prefix;
         } else
-            throw new RuntimeException("Enter a course prefix that is 3 characters");
+            throw new IllegalArgumentException("Enter a course prefix that is 3 characters");
 
         // regex found from java api - a through z or A through Z, inclusive (range)
         if(prefix.matches("[a-zA-Z]+")) {
@@ -91,7 +91,7 @@ public class Course {
     public void setTitle(String title) {
 
         // checks for null entry
-        if(title != "") {
+        if(title != "" && title.length() < 50) {
             this.title = title;
         }
         else {
