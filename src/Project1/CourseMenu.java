@@ -6,14 +6,13 @@ import java.util.Scanner;
  * Course Menu class.
  *
  * This file can add new courses
- *  * @author Sarah Wight, Zack Peters, Mike Rosin
  * @author Sarah Wight, Zack Peters, Mike Rosin
  * @date 7/11/2022
  *
  ********************************************************/
 public class CourseMenu {
     private Scanner scnr = new Scanner(System.in);
-    private SMS sms = new SMS();
+    //private SMS sms = new SMS();
     private boolean valid = false;
 
     /*********************************************************
@@ -27,8 +26,8 @@ public class CourseMenu {
         setNum(course); // setting the course number
         setTitle(course); // setting the course title
 
-        sms.addC(course); // adding new course to the list of courses
-        sms.printC(); // printing out updated course list
+        SMS.smsInstance.addC(course); // adding new course to the list of courses
+        SMS.smsInstance.printC(); // printing out updated course list
 
         /* move to recordmenu later
         System.out.println("Enter course prefix and number");
@@ -36,7 +35,7 @@ public class CourseMenu {
         int num = scnr.nextInt();
         scnr.nextLine();
 
-        System.out.println(sms.findS(pre, num));*/
+        System.out.println(sms.findC(pre, num));*/
 
     }
 
