@@ -1,5 +1,6 @@
 package Project1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /***************************************************************
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * @date 7/11/2022
  *
  **************************************************************/
-public class SMS {
+public class SMS implements Serializable {
     public static SMS smsInstance = new SMS(); // singleton object
 
     private ArrayList<Record> record = new ArrayList<Record>(); // arraylist to hold records
@@ -65,7 +66,7 @@ public class SMS {
 
         // if the ArrayList is still the default state after exiting throw exception
         if(blank.getgNumber() == 1000000) {
-            throw new RuntimeException("The following G number does not exist in the database: " + gNum);
+            throw new IllegalArgumentException("The following G number does not exist in the database: " + gNum);
         }
 
         return blank;
@@ -106,7 +107,7 @@ public class SMS {
 
         // if the ArrayList is still the default state after exiting throw exception
         if(blank.getPrefix().equals("ABC") && blank.getNumber() == 123) {
-            throw new RuntimeException("The following course does not exist in the database: " + pre + " " + num);
+            throw new IllegalArgumentException("The following course does not exist in the database: " + pre + " " + num);
         }
 
         return blank;
@@ -147,7 +148,7 @@ public class SMS {
 
         // if the ArrayList is empty after exiting the for loop, there is no student record with that g number
         if(blank.size() == 0) {
-            throw new RuntimeException("There are no students with G Number " + gNum);
+            throw new IllegalArgumentException("There are no students with G Number " + gNum);
         }
         return blank;
     }
