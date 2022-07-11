@@ -55,7 +55,6 @@ public class MainMenu {
                 displayMain();
                 break;
         }
-        displayMain();
     }
 
     /***************************************************************
