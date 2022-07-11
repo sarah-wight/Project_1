@@ -1,0 +1,109 @@
+package testing;
+
+import Project1.Phone;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+
+class PhoneTest {
+
+    @Test
+    void setAreaCode() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setAreaCode(1234);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setAreaCode(1111111111);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setAreaCode(-500);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setAreaCode(123);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setAreaCode(616);
+        });
+
+    }
+
+    @Test
+    void setPrefix() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setPrefix(15);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setPrefix(98);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setPrefix(2000);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setPrefix(616);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setPrefix(987);
+        });
+    }
+
+    @Test
+    void setNumber() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setNumber();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setNumber();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setNumber();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setNumber();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setNumber();
+        });
+    }
+
+    @Test
+    void setType() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setType("Five");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setType(-3);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Phone phone = new Phone();
+            Phone.setType(6);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setType(2);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Phone phone = new Phone();
+            Phone.setType(4);
+        });
+    }
+
+    @Test
+    void setPrimary() {
+    }
+}
