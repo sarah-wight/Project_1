@@ -60,9 +60,9 @@ public class Record {
     }
 
     public String toString() {
-        return "Record for " + student.getFirstName() + "\n" +
+        return //"Record for " + student.getFirstName() + "\n" +
                 "Date: " + date + "\n" +
                 "Course: " + course + "\n" +
-                "Grade: " + grade;
+                "Grade: " + grade + "\n";
     }
 }
