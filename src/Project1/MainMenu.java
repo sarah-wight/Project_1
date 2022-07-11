@@ -151,8 +151,9 @@ public class MainMenu {
                 rm.addRecord(scnr.nextInt()); // if 1, a record will be added
                 scnr.nextLine();
                 break;
-            case 2:
-                rm.viewTranscript(); // if 2, a transcript will be displayed
+            case 2: System.out.println("Enter the G Number of the student whose transcript you would like to view\n");
+                rm.viewTranscript(scnr.nextInt()); // if 2, a transcript will be displayed
+                scnr.nextLine();
                 break;
             case 3:
                 rm.saveRecord("record.ser"); // if 3, the record will be saved to disk
