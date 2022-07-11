@@ -1,0 +1,132 @@
+package testing;
+
+import Project1.Student;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+class StudentTest {
+
+    @Test
+    void setFirstName() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setFirstName("");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setFirstName("123");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setFirstName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setFirstName("William");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setFirstName("Ethan");
+        });
+
+
+    }
+
+    @Test
+    void setLastName() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setLastName("");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setLastName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setLastName("123");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setLastName("Baker");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setLastName("Williams");
+        });
+
+    }
+
+    @Test
+    void setMailingAddr() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setMailingAddr();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setMailingAddr();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setMailingAddr();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setMailingAddr();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setMailingAddr();
+        });
+
+    }
+
+    @Test
+    void setBillingAddr() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setBillingAddr();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setBillingAddr();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setBillingAddr();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setBillingAddr();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setBillingAddr();
+        });
+    }
+
+    @Test
+    void setgNumber() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setgNumber();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setgNumber();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Student student = new Student();
+            student.setgNumber();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setgNumber();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Student student = new Student();
+            student.setgNumber();
+        });
+    }
+}
