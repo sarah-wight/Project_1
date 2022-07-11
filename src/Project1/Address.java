@@ -5,7 +5,7 @@ package Project1;
  *
  * This file contains and edits the addresses.
  * @author Sarah Wight, Zack Peters, Mike Rosin
- * @date 7/6/2022
+ * @date 7/11/2022
  *
  **********************************************/
 public class Address {
