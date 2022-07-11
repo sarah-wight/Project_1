@@ -11,11 +11,11 @@ import java.util.ArrayList;
  *
  **************************************************************/
 public class SMS {
+    public static SMS smsInstance = new SMS(); // singleton object
+
     private ArrayList<Record> record = new ArrayList<Record>(); // arraylist to hold records
     private ArrayList<Student> student = new ArrayList<Student>(); // arraylist to hold students
     private ArrayList<Course> course = new ArrayList<Course>(); // arraylist to hold courses
-
-    // loop thru arraylist to see if gnumber matches
 
     /**************************************************************
      * Main.  Allows program to run. Displays the main menu and
@@ -24,14 +24,15 @@ public class SMS {
      **************************************************************/
     public static void main(String[] args) {
 
+        // creating an instance of main menu class and displaying the main menu
         MainMenu mm = new MainMenu();
         mm.displayMain();
 
     }
 
-
     /***************************************************************
      * addS.  Adds a Student to the ArrayList of Students
+     * @Student s
      **************************************************************/
     public void addS(Student s) {
         student.add(s);
@@ -48,7 +49,25 @@ public class SMS {
     }
 
     /***************************************************************
+     * findS.  loops through the ArrayList of students to find matching
+     * gNumber. Returns the Student
+     * @int gNum
+     **************************************************************/
+    public Student findS(int gNum) {
+        Student blank = new Student();
+
+        // looping through list of students
+        for(Student s : student) {
+            if(gNum == s.getgNumber()) {
+                blank = s;
+            }
+        }
+        return blank;
+    }
+
+    /***************************************************************
      * addC.  Adds a Student to the ArrayList of Students
+     * @Course c
      **************************************************************/
     public void addC(Course c) {
         course.add(c);
@@ -60,6 +79,41 @@ public class SMS {
     public void printC() {
         for (Course c : course) {
             System.out.println(c);
+            System.out.println("\n");
+        }
+    }
+
+    /***************************************************************
+     * findC.  loops through the ArrayList of students to find matching
+     * gNumber. Returns the Student
+     * @int gNum
+     **************************************************************/
+    public Course findC(String pre, int num) {
+        Course blank = new Course();
+
+        // looping through list of courses
+        for(Course c : course) {
+            if(pre.equals(c.getPrefix()) && num == c.getNumber()) {
+                blank = c;
+            }
+        }
+        return blank;
+    }
+
+    /***************************************************************
+     * addR.  Adds a Student to the ArrayList of Students
+     * @Record r
+     **************************************************************/
+    public void addR(Record r) {
+        record.add(r);
+    }
+
+    /***************************************************************
+     * printR.  prints the ArrayList of Records
+     **************************************************************/
+    public void printR() {
+        for (Record r : record) {
+            System.out.println(r);
             System.out.println("\n");
         }
     }
