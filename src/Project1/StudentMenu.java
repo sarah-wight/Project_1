@@ -12,9 +12,6 @@ import java.util.Scanner;
  ********************************************************/
 public class StudentMenu {
     private Scanner scnr = new Scanner(System.in);
-
-    // Creating an instance of the SMS class and a boolean variable for the loops
-    //private SMS sms = new SMS();
     private boolean valid = false;
 
     /*********************************************************
@@ -105,7 +102,7 @@ public class StudentMenu {
                 System.out.println("Enter student's first name");
                 student.setFirstName(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -125,7 +122,7 @@ public class StudentMenu {
                 System.out.println("Enter student's last name");
                 student.setLastName(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -146,7 +143,7 @@ public class StudentMenu {
                 address.setNumber(scnr.nextInt());
                 scnr.nextLine(); // need this after nextInt() call to get the new line in the stream
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -159,7 +156,7 @@ public class StudentMenu {
                 System.out.println("Mailing Address - Enter street name");
                 address.setStreet(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -172,7 +169,7 @@ public class StudentMenu {
                 System.out.println("Mailing Address - Enter city");
                 address.setCity(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -185,7 +182,7 @@ public class StudentMenu {
                 System.out.println("Mailing Address - Enter state");
                 address.setState(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -199,7 +196,7 @@ public class StudentMenu {
                 address.setZip(scnr.nextInt());
                 scnr.nextLine(); // need this after nextInt() call to get the new line
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -222,7 +219,7 @@ public class StudentMenu {
                 address.setNumber(scnr.nextInt());
                 scnr.nextLine(); // need this after nextInt() call to get the new line
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -235,7 +232,7 @@ public class StudentMenu {
                 System.out.println("Billing Address - Enter street name");
                 address.setStreet(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -248,7 +245,7 @@ public class StudentMenu {
                 System.out.println("Billing Address - Enter city");
                 address.setCity(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -261,7 +258,7 @@ public class StudentMenu {
                 System.out.println("Billing Address - Enter state");
                 address.setState(scnr.nextLine());
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -275,7 +272,7 @@ public class StudentMenu {
                 address.setZip(scnr.nextInt());
                 scnr.nextLine(); // need this after nextInt() call to get the new line
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -297,7 +294,7 @@ public class StudentMenu {
                 System.out.println("Phone Number - Enter phone type\n HOME, CELL, BUSINESS, or FAX");
                 phone.setType(Phone.PhoneType.valueOf(scnr.nextLine()));
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -311,7 +308,7 @@ public class StudentMenu {
                 phone.setAreaCode(scnr.nextInt());
                 scnr.nextLine();
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -325,7 +322,7 @@ public class StudentMenu {
                 phone.setPrefix(scnr.nextInt());
                 scnr.nextLine();
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -339,7 +336,7 @@ public class StudentMenu {
                 phone.setNumber(scnr.nextInt());
                 scnr.nextLine();
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
@@ -363,7 +360,7 @@ public class StudentMenu {
                 student.setgNumber(scnr.nextInt());
                 scnr.nextLine();
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
