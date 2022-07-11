@@ -22,7 +22,7 @@ public class RecordsMenu implements Serializable {
      ******************************************************************/
     public void addRecord(int gNum) {
 
-        // add try catch blocks and grade
+        // ADD TRY CATCH BLOCKS AND GRADE ENTRY
 
         // creating a student and setting equal to the student entered
         Record record = new Record();
@@ -46,20 +46,27 @@ public class RecordsMenu implements Serializable {
         record.setCourse(course);
 
         record.setDate(date);
-        record.setGrade(4.0f);
+        record.setGrade(4.0f); // fix
 
         SMS.smsInstance.addR(record);
+        System.out.println("\nRecord has been added\n");
         SMS.smsInstance.printR();
 
-        // add a grade?
+        // FIX GRADE - ENTER OWN GRADE
     }
 
     /*******************************************************************
      * viewTranscript.  Displays the transcript of a student
      ******************************************************************/
-    public void viewTranscript() {
-        // loop gnumber to get student
-        // displays them and all classes and grades?
+    public void viewTranscript(int gNum) {
+        // UPDATE TO LOOK BETTER
+        ArrayList<Record> transcript = new ArrayList<Record>();
+
+        transcript = SMS.smsInstance.findR(gNum);
+
+        System.out.println(transcript);
+
+
     }
 
     /*******************************************************************
@@ -72,7 +79,7 @@ public class RecordsMenu implements Serializable {
         try {
             FileOutputStream fileOut = new FileOutputStream(filename); // creating file stream
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut); // adding bytes to file
-            objectOut.writeObject(this); // Zoo object writes itself to a file - using 'this' because we are in the Zoo class
+            objectOut.writeObject(SMS.smsInstance); // Zoo object writes itself to a file - using 'this' because we are in the Zoo class
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
         } catch (IOException ex) {
