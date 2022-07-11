@@ -6,7 +6,7 @@ package Project1;
  *
  * This file contains and edits the courses.
  * @author Sarah Wight, Zack Peters, Mike Rosin
- * @date 7/6/2022
+ * @date 7/11/2022
  *
  **********************************************/
 public class Course {
@@ -52,7 +52,7 @@ public class Course {
             throw new RuntimeException("course prefix can only contain letters");
         }
     }
-    
+
     /***********************************************
      * getNumber.  Returns an int of the course number.
      * @return int
