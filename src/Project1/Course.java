@@ -49,7 +49,7 @@ public class Course {
         if(prefix.matches("[a-zA-Z]+")) {
             this.prefix = prefix;
         } else {
-            throw new RuntimeException("course prefix can only contain letters");
+            throw new IllegalArgumentException("course prefix can only contain letters");
         }
     }
 
@@ -72,7 +72,7 @@ public class Course {
             this.number = number;
         }
         else {
-            throw new RuntimeException("Please enter a course number between 1 and 999");
+            throw new IllegalArgumentException("Please enter a course number between 1 and 999");
         }
     }
 
@@ -95,7 +95,7 @@ public class Course {
             this.title = title;
         }
         else {
-            throw new RuntimeException("Please enter a course title");
+            throw new IllegalArgumentException("Please enter a course title");
         }
     }
 
