@@ -1,0 +1,82 @@
+package testing;
+
+import Project1.Course;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+class CourseTest {
+
+    @Test
+    void setPrefix() {
+        Assertions.assertDoesNotThrow(() -> {
+            Course course = new Course();
+            course.setPrefix("CIS");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Course course = new Course();
+            course.setPrefix("ENG");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setPrefix("123");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setPrefix("Computer Science");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setPrefix("English");
+        });
+    }
+
+    @Test
+    void setNumber() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setNumber(-10);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setNumber(5000);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setNumber(-1500);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Course course = new Course();
+            course.setNumber(256);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Course course = new Course();
+            course.setNumber(163);
+        });
+
+
+    }
+
+    @Test
+    void setTitle() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setTitle("");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setTitle("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setTitle("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setTitle("Computer Science 2");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Course course = new Course();
+            course.setTitle("English 101");
+        });
+    }
+}
