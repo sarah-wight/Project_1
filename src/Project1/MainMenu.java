@@ -2,7 +2,7 @@ package Project1;
 
 import java.util.Scanner;
 
-/**
+/**************************************************************
  * Main Menu class.
  *
  * This file displays the main menu, student, course, and record menus.
@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Sarah Wight, Zack Peters, Mike Rosin
  * @date 7/11/2022
  *
- */
+ **************************************************************/
 public class MainMenu {
 
     private StudentMenu sm = new StudentMenu(); // creating object of the student menu class
