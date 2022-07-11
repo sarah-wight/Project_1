@@ -1,5 +1,6 @@
 package Project1;
 
+import java.io.Serializable;
 import java.util.*;
 
 /*******************************************************
@@ -10,7 +11,7 @@ import java.util.*;
  * @date 7/11/2022
  *
  ******************************************************/
-public class Record {
+public class Record implements Serializable {
     private Date date;
     private Student student;
     private Course course;
@@ -96,7 +97,7 @@ public class Record {
         }
     }
 
-    
+
     public String toString() {
         return //"Record for " + student.getFirstName() + "\n" +
                 "Date: " + date + "\n" +
