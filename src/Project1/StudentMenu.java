@@ -202,7 +202,7 @@ public class StudentMenu {
         valid = false;
         while(!valid) {
             try {
-                System.out.println("Phone Number - Enter phone type");
+                System.out.println("Phone Number - Enter phone type\n HOME, CELL, BUSINESS, or FAX");
                 phone.setType(Phone.PhoneType.valueOf(scnr.nextLine()));
                 valid = true;
             } catch (RuntimeException ex) {
@@ -256,8 +256,21 @@ public class StudentMenu {
         phone.setPrimary(true); // setting the phone number entered to primary
         student.addPhone(phone); // assigning the phone entered to the student
 
-        student.getgNumber(); // getting the gnumber - do we get or set?
+        //student.getgNumber(); // getting the gnumber - do we get or set?
 
+        // Prompting user to enter gnumber
+        valid = false;
+        while(!valid) {
+            try {
+                System.out.println("Enter new student G Number");
+                student.setgNumber(scnr.nextInt());
+                scnr.nextLine();
+                valid = true;
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again\n");
+            }
+        }
 
         sms.addS(student); // adding new student to the list of students
 
@@ -271,6 +284,10 @@ public class StudentMenu {
      ********************************************************/
     public void modStudent() {
         // need to be able to identify a student by their gNUmber ***********NEED TO FIX
+        System.out.println("Please enter the G Number of the student you would like to modify\n");
+
+        //scnr.nextInt();
+
         sms.printS();
         System.out.println("Print done");
 
