@@ -1,0 +1,104 @@
+package testing;
+
+import Project1.Record;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+class RecordTest {
+
+    @Test
+    void setDate() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setDate();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setDate();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setDate();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setDate();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setDate();
+        });
+    }
+
+    @Test
+    void setStudent() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+    }
+
+    @Test
+    void setCourse() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setStudent();
+        });
+    }
+
+    @Test
+    void setGrade() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setGrade();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setGrade();
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Record record = new Record();
+            record.setGrade();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setGrade();
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Record record = new Record();
+            record.setGrade();
+        });
+    }
+}
