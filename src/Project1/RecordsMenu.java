@@ -23,8 +23,6 @@ public class RecordsMenu implements Serializable {
      ******************************************************************/
     public void addRecord() {
 
-        // ADD TRY CATCH BLOCKS AND GRADE ENTRY
-
         // creating a student and setting equal to the student entered
         Record record = new Record();
         Student student = new Student();
@@ -36,11 +34,9 @@ public class RecordsMenu implements Serializable {
         record.setDate(date); // date is set automatically at time of entry
         courseGrade(record); // prompting user to enter grade for course
 
-        SMS.smsInstance.addR(record);
+        SMS.smsInstance.addR(record); // adding the record to the database
 
-        displayR(student);
-
-        // FIX GRADE - ENTER OWN GRADE
+        displayR(student); // displaying updated list of records
     }
 
     /*******************************************************************
@@ -59,18 +55,18 @@ public class RecordsMenu implements Serializable {
         // Printing out transcript
         String ts = "Transcript for " + student.getFirstName() + " " + student.getLastName() + "\n\n";
 
-        // adding each record to the string and printing it out 
+        // adding each record to the string and printing it out
         for (Record r : transcript) {
             ts += r.toString() + "\n";
         }
-        System.out.println(ts); 
+        System.out.println(ts);
 
         // finding the sum of the gpa for each class
         float sum = 0;
         for(int i = 0; i < transcript.size(); i++) {
             sum += transcript.get(i).getGrade();
         }
-        
+
         // calculating the average gpa for all classes
         float avg = sum / transcript.size();
 
@@ -126,6 +122,8 @@ public class RecordsMenu implements Serializable {
      * findStudent.  finds Student based on G number and adds them to a record
      ******************************************************************/
     public Student findStudent(Student student, Record record) {
+
+        // add exception that tells user they must enter a student and course before creating a record
 
         // finding the student from the gnumber
         valid = false;
