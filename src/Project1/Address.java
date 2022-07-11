@@ -49,7 +49,7 @@ public class Address {
         if(number > 0 && number < 1000000) {
             this.number = number;
         } else {
-            throw new RuntimeException("Number must be greater than 0 and less than 1000000");
+            throw new IllegalArgumentException("Number must be greater than 0 and less than 1000000");
         }
     }
 
@@ -71,7 +71,7 @@ public class Address {
         if((street.length() < 50) && (street != "")) {
             this.street = street;
         } else {
-            throw new RuntimeException("Street must be between 1 and 50 characters");
+            throw new IllegalArgumentException("Street must be between 1 and 50 characters");
         }
     }
 
@@ -93,7 +93,7 @@ public class Address {
         if((street.length() < 50)) {
             this.lineTwo = lineTwo;
         } else {
-            throw new RuntimeException("Street must be between 1 and 50 characters");
+            throw new IllegalArgumentException("Street must be between 1 and 50 characters");
         }
     }
 
@@ -117,7 +117,14 @@ public class Address {
             this.city = city;
         }
         else {
-            throw new RuntimeException("City name must be between 1 and 50 characters");
+            throw new IllegalArgumentException("City name must be between 1 and 50 characters");
+        }
+
+        // regex found from java api - a through z or A through Z, inclusive (range)
+        if(state.matches("[a-zA-Z]+")) {
+            this.state = state;
+        } else {
+            throw new IllegalArgumentException("State name can only contain letters");
         }
     }
 
@@ -139,14 +146,14 @@ public class Address {
         if((state != "") && (state.length() == 2)) {
             this.state = state;
         } else {
-            throw new RuntimeException("Please enter a 2 letter state abbreviation");
+            throw new IllegalArgumentException("Please enter a 2 letter state abbreviation");
         }
 
         // regex found from java api - a through z or A through Z, inclusive (range)
         if(state.matches("[a-zA-Z]+")) {
             this.state = state;
         } else {
-            throw new RuntimeException("State name can only contain letters");
+            throw new IllegalArgumentException("State name can only contain letters");
         }
     }
 
@@ -169,7 +176,7 @@ public class Address {
             this.zip = zip;
         }
         else {
-            throw new RuntimeException("Please enter a zipcode between 1 and 99999");
+            throw new IllegalArgumentException("Please enter a zipcode between 1 and 99999");
         }
     }
 
