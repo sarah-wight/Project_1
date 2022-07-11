@@ -12,9 +12,7 @@ import java.util.Scanner;
  *
  ********************************************************/
 public class CourseMenu {
-    private Course course = new Course();
     private Scanner scnr = new Scanner(System.in);
-    private Record record = new Record();
     private SMS sms = new SMS();
     private boolean valid = false;
 
@@ -25,6 +23,28 @@ public class CourseMenu {
     public void addCourse() {
         Course course = new Course(); // creating new course
 
+        setPre(course); // setting the course prefix
+        setNum(course); // setting the course number
+        setTitle(course); // setting the course title
+
+        sms.addC(course); // adding new course to the list of courses
+        sms.printC(); // printing out updated course list
+
+        /* move to recordmenu later
+        System.out.println("Enter course prefix and number");
+        String pre = scnr.nextLine();
+        int num = scnr.nextInt();
+        scnr.nextLine();
+
+        System.out.println(sms.findS(pre, num));*/
+
+    }
+
+    /*********************************************************
+     * setPre.  sets the course prefix
+     * @Course course.
+     ********************************************************/
+    public void setPre(Course course) {
         // Prompting user to enter course prefix
         valid = false;
         while(!valid) {
@@ -37,7 +57,13 @@ public class CourseMenu {
                 System.out.println("Please try again\n");
             }
         }
+    }
 
+    /*********************************************************
+     * setNum.  sets the course number
+     * @Course course.
+     ********************************************************/
+    public void setNum(Course course) {
         // Prompting user to enter course number
         valid = false;
         while(!valid) {
@@ -51,7 +77,13 @@ public class CourseMenu {
                 System.out.println("Please try again\n");
             }
         }
+    }
 
+    /*********************************************************
+     * setTitle.  sets the course title
+     * @Course course.
+     ********************************************************/
+    public void setTitle(Course course) {
         // Prompting user to enter course title
         valid = false;
         while(!valid) {
@@ -64,9 +96,5 @@ public class CourseMenu {
                 System.out.println("Please try again\n");
             }
         }
-
-        sms.addC(course); // adding new course to the list of courses
-        sms.printC();
-
     }
 }
