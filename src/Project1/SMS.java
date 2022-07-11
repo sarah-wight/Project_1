@@ -62,6 +62,12 @@ public class SMS {
                 blank = s;
             }
         }
+
+        // if the ArrayList is still the default state after exiting throw exception
+        if(blank.getgNumber() == 1000000) {
+            throw new RuntimeException("The following G number does not exist in the database: " + gNum);
+        }
+
         return blank;
     }
 
@@ -97,6 +103,12 @@ public class SMS {
                 blank = c;
             }
         }
+
+        // if the ArrayList is still the default state after exiting throw exception
+        if(blank.getPrefix().equals("ABC") && blank.getNumber() == 123) {
+            throw new RuntimeException("The following course does not exist in the database: " + pre + " " + num);
+        }
+
         return blank;
     }
 
@@ -131,6 +143,11 @@ public class SMS {
             if(gNum == r.getStudent().getgNumber()) {
                 blank.add(r);
             }
+        }
+
+        // if the ArrayList is empty after exiting the for loop, there is no student record with that g number
+        if(blank.size() == 0) {
+            throw new RuntimeException("There are no students with G Number " + gNum);
         }
         return blank;
     }
