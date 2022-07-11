@@ -16,7 +16,7 @@ public class Student {
     private String lastName;
     private Address[] addresses = new Address[2];
     private ArrayList<Phone> phoneNumbers = new ArrayList<Phone>();
-    private int gNumber = 10000000;
+    private int gNumber = 1000000;
     // private static int currentID = 10000000; <- make gnumber variable static instead?
 
     /*********************************************************
@@ -50,14 +50,14 @@ public class Student {
         if((firstName.length() < 50) && (firstName != "")) {
             this.firstName = firstName;
         } else {
-            throw new RuntimeException("First name must be between 1 and 50 characters");
+            throw new IllegalArgumentException("First name must be between 1 and 50 characters");
         }
 
         // regex found from java api
         if(firstName.matches("[a-zA-Z]+")) {
             this.firstName = firstName;
         } else {
-            throw new RuntimeException("First name can only contain letters");
+            throw new IllegalArgumentException("First name can only contain letters");
         }
 
     }
@@ -80,7 +80,7 @@ public class Student {
             this.lastName = lastName;
         }
         else {
-            throw new RuntimeException("Last name must be between 1 and 50 characters");
+            throw new IllegalArgumentException("Last name must be between 1 and 50 characters");
         }
     }
 
@@ -139,10 +139,10 @@ public class Student {
     public void setgNumber(int gNumber) {
 
         // checking length
-        if(gNumber >= 1000000 && gNumber <= 99999999 ) {
+        if(gNumber > 1000000 && gNumber <= 99999999 ) {
             this.gNumber = gNumber;
         } else {
-            throw new RuntimeException("G Number must be between 10000000 and 99999999");
+            throw new IllegalArgumentException("G Number must be between 10000000 and 99999999");
         }
     }
 
