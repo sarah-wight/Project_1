@@ -49,12 +49,26 @@ public class RecordsMenu implements Serializable {
     public void viewTranscript(int gNum) {
         // UPDATE TO LOOK BETTER
         ArrayList<Record> transcript = new ArrayList<Record>();
+        Student student = new Student();
 
         transcript = SMS.smsInstance.findR(gNum);
+        student = SMS.smsInstance.findS(gNum);
 
-        System.out.println(transcript); // fix format
+        String ts = "Transcript for " + student.getFirstName() + " " + student.getLastName() + "\n\n";
 
+        for (Record r : transcript) {
+            ts += r.toString() + "\n";
+        }
+        System.out.println(ts); // fix format
 
+        float sum = 0;
+        for(int i = 0; i < transcript.size(); i++) {
+            sum += transcript.get(i).getGrade();
+        }
+
+        float avg = sum / transcript.size();
+
+        System.out.println("Overall GPA: " + avg + "\n");
     }
 
     /*******************************************************************
@@ -101,6 +115,9 @@ public class RecordsMenu implements Serializable {
         return r;
     }
 
+    /*******************************************************************
+     * findStudent.  finds Student based on G number and adds them to a record
+     ******************************************************************/
     public Student findStudent(Student student, Record record) {
 
         // finding the student from the gnumber
@@ -113,13 +130,16 @@ public class RecordsMenu implements Serializable {
                 System.out.println("Student selected: \n" + student);
                 record.setStudent(student);
                 valid = true;
-            } catch (Exception ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage());
             }
         }
         return student;
     }
 
+    /*******************************************************************
+     * findCourse.  finds Course based on prefix and number and adds them to a record
+     ******************************************************************/
     public void findCourse(Course course, Record record) {
 
         valid = false;
@@ -142,12 +162,15 @@ public class RecordsMenu implements Serializable {
                 record.setCourse(course);
                 valid = true;
 
-            } catch (Exception ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage());
             }
         }
     }
 
+    /*******************************************************************
+     * courseGrade.  adds grade to record
+     ******************************************************************/
     public void courseGrade(Record record) {
 
         // Prompting user to enter grade
@@ -158,13 +181,16 @@ public class RecordsMenu implements Serializable {
                 record.setGrade(scnr.nextFloat());
                 scnr.nextLine();
                 valid = true;
-            } catch (RuntimeException ex) {
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // reading error message thrown by exception
                 System.out.println("Please try again\n");
             }
         }
     }
 
+    /*******************************************************************
+     * displayR.  displays the student records
+     ******************************************************************/
     public void displayR(Student student) {
         System.out.println("\nRecord has been added\n");
         //System.out.println("Record for " + student.getFirstName() + " " + student.getLastName()); // may or may not work
