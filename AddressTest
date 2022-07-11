@@ -1,0 +1,133 @@
+package testing;
+
+import Project1.Address;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+
+class AddressTest {
+
+    @Test
+    void setNumber() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setNumber(-1);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setNumber(-50000);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setNumber(-12345);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setNumber(12345);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setNumber(25461);
+        });
+    }
+    @Test
+    void setStreet() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setStreet("");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setStreet("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setStreet("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setStreet("10 College Ave");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setStreet("10 Campus Drive");
+        });
+    }
+    @Test
+    void setLineTwo() {
+    }
+
+    @Test
+    void setCity() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setCity("");
+        });
+
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setCity("Detroit");
+        });
+
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setCity("Grand Rapids");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setCity("Chicago");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setCity("0123456789");
+        });
+    }
+
+    @Test
+    void setState() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setState("123");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setState("Michigan");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setState("");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setState("MI");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setState("CA");
+        });
+    }
+
+    @Test
+    void setZip() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setNumber(-1);
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Address address = new Address();
+            address.setNumber(-1);
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setCity("Chicago");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setCity("Chicago");
+        });
+        Assertions.assertDoesNotThrow(() -> {
+            Address address = new Address();
+            address.setCity("Chicago");
+        });
+    }
+}
